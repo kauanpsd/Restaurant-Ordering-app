@@ -1,0 +1,105 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Smythe', cursive;
+    font-weight: 400;
+    font-size: 1.6rem; /* 1 rem = 10px */
+    text-decoration: none;
+}
+
+
+img{
+    max-width: 100%;
+}
+
+html{
+    font-size: 62.5%; /* Essa configuração vai transformar: 1 rem = 10px - Então para converter um pixel em rem, eu uso os decimais.*/
+}
+
+button{
+    cursor: pointer;
+}
+
+a {
+    color: inherit; 
+}
+
+/* Reset config */
+
+header{
+    position: relative;
+    max-width: 60rem;
+    height: 16.7rem ;
+}
+
+.mainImage{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: space-between;
+    padding-top: 3.8rem;
+    gap: 1rem;
+    padding-left: 4.6rem;
+
+}
+
+.main-text{
+    font-size: 3.9rem;
+}
+
+.main-subtext{
+    font-size: 2.2rem;
+}
+
+/* Order Section */
+.orders{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 50.8rem;
+    padding-top: 6.1rem;
+    padding-bottom: 5.1rem;
+    border-bottom: solid 1px #8b8b8b77;
+    
+}
+
+.order-info{
+    width: 100%;
+}
+
+.order-img{
+    margin-right: 3.1rem;
+}
+
+.order-info h1{
+    font-size: 2.8rem ;
+    margin-bottom: 0.88rem;
+}
+
+.order-info p{
+    color: #8B8B8B;
+    margin-bottom: 0.8rem;
+}
+
+.order-info h2{
+    font-size: 2rem;
+}
