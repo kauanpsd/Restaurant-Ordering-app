@@ -8,7 +8,31 @@ function addToPayment(orderPayment){
          return  orderPayment == price.id
         })[0]
         )
+
+        let paymentSection = ``
+
+        paymentSection = `
+
+        <div class="Sum-orders">
+
+            <div class="required">
+                <h1>PIZZA</h1>
+                <p>remove</p>
+            </div>
+            
+
+            <div class="price">
+                <h2>$14</h2>
+            </div>
+            
+            
+        </div>
+        `
+
+        document.querySelector(".listOfPayment").innerHTML += paymentSection
  }
+
+ 
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.order){

@@ -119,6 +119,14 @@ header{
     margin-top: 4.5rem;
 }
 
+
+
+.payment-title{
+    font-size: 2.8rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
 #payment h1{
     font-size: 2.8rem;
 }
@@ -129,12 +137,22 @@ header{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.listOfPayment {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 50.8rem;
+    margin-bottom: 3rem;
+    
+}
+
 .Sum-orders{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 3rem;
+    max-width: 50.8rem;
+    margin-bottom: 1rem;
     
 }
 
