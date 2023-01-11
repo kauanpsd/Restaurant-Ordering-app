@@ -1,3 +1,5 @@
+
+
 export const menuArray = [
     {
         name: "Pizza",
@@ -19,5 +21,6 @@ export const menuArray = [
         price: 12,
         img: "./images/item graphicbeer.png",
         id: 2
-    }
+    },
+    
 ]

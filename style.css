@@ -242,3 +242,7 @@ input{
     display: none;
 }
 
+a{
+     cursor: pointer; 
+}
+
