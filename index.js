@@ -1,52 +1,39 @@
 import {menuArray} from './data.js';
 
-function addToPayment(orderPayment){
 
-    /* ADICIONAR A STRING DE HTML DAS ORDENS DE PAGAMENTO AQUI */
-        
-    console.log( menuArray.filter(function(price){
-         return  orderPayment == price.id
+function addToPayment(orderPayment){    
+   let id = menuArray.filter(function(identif){
+         return  orderPayment == identif.id
         })[0]
-        )
 
         let paymentSection = ``
 
+        
         paymentSection = `
-
+            
         <div class="Sum-orders">
 
             <div class="required">
-                <h1>PIZZA</h1>
-                <p>remove</p>
+                <h1>${id.name}</h1>
+               <a> <p>remove</p> </a> 
             </div>
             
 
             <div class="price">
-                <h2>$14</h2>
+                <h2>$${id.price}</h2>
             </div>
-            
             
         </div>
         `
-
+        /* document.querySelector(".total-price").innerHTML =  */
         document.querySelector(".listOfPayment").innerHTML += paymentSection
  }
-
- 
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.order){
         addToPayment(e.target.dataset.order)
-       
-
     }
     })
-
-
-
-    
-    
-
 
 function getFeedHtml(){
     

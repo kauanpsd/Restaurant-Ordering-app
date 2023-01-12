@@ -11,7 +11,7 @@ export const menuArray = [
     {
         name: "Hamburger",
         ingredients: ["beef", "cheese", "lettuce"],
-        price: 12,
+        price: 10,
         img: "./images/item graphicHamburger.png",
         id: 1
     },
