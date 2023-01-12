@@ -1,5 +1,9 @@
 import {menuArray} from './data.js';
 
+let sumArray = []
+
+
+
 
 function addToPayment(orderPayment){    
    let id = menuArray.filter(function(identif){
@@ -27,12 +31,18 @@ function addToPayment(orderPayment){
         `
         /* document.querySelector(".total-price").innerHTML =  */
         document.querySelector(".listOfPayment").innerHTML += paymentSection
+        
+        sumArray.push(id.price)
+        console.log(sumArray)
+
  }
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.order){
         addToPayment(e.target.dataset.order)
     }
+
+
     })
 
 function getFeedHtml(){
@@ -60,6 +70,7 @@ menuArray.forEach(function (order){
 
 function render(){
     document.querySelector('.orders').innerHTML = getFeedHtml()
+    
 }
 
 render()
