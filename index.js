@@ -33,7 +33,17 @@ function addToPayment(orderPayment){
         document.querySelector(".listOfPayment").innerHTML += paymentSection
         
         sumArray.push(id.price)
-        console.log(sumArray)
+        
+        var sum = 0
+        for (let i = 0; i < sumArray.length; i++){
+
+              sum += sumArray[i] 
+        }
+
+        document.querySelector(".total-price").innerHTML = `
+        <h1>Total Price:</h1>
+        <h2>$${sum}</h2> 
+        `
 
  }
 
