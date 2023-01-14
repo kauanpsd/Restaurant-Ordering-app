@@ -1,8 +1,11 @@
+
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 import {menuArray} from './data.js';
 
-let sumArray = []
 
 
+let itemsArray = []
+let sumItems = []
 
 
 function addToPayment(orderPayment){    
@@ -10,50 +13,95 @@ function addToPayment(orderPayment){
          return  orderPayment == identif.id
         })[0]
 
-        let paymentSection = ``
 
-        
-        paymentSection = `
-            
-        <div class="Sum-orders">
-
-            <div class="required">
-                <h1>${id.name}</h1>
-               <a> <p>remove</p> </a> 
-            </div>
-            
-
-            <div class="price">
-                <h2>$${id.price}</h2>
-            </div>
-            
-        </div>
-        `
-        /* document.querySelector(".total-price").innerHTML =  */
-        document.querySelector(".listOfPayment").innerHTML += paymentSection
-        
-        sumArray.push(id.price)
-        
         var sum = 0
-        for (let i = 0; i < sumArray.length; i++){
 
-              sum += sumArray[i] 
-        }
+        sumItems.push(
+            id.price
+        )
 
+        for (let i = 0; i < sumItems.length; i++){
+            sum += sumItems[i] 
+      }
+    
         document.querySelector(".total-price").innerHTML = `
         <h1>Total Price:</h1>
         <h2>$${sum}</h2> 
         `
+
+        console.log(sumItems)
+
+        if(sumItems.length === 1){
+            document.querySelector('.payment-title').classList.add('show')
+            document.querySelector('.total-price').classList.add('show-flex')
+            document.querySelector('.complete-order').classList.add('show')
+        }
+
+        
 
  }
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.order){
         addToPayment(e.target.dataset.order)
-    }
-
-
+        totalPrice(e.target.dataset.order)
+        }
     })
+
+    document.addEventListener('click', function(e){
+        if(e.target.dataset.itemid){
+            
+
+            let itemString = `"${e.target.dataset.itemid}"`
+           console.log( document.getElementById(itemString))
+        }
+
+      
+        
+        
+    })
+/* ADD THE SUM, AND UUID */
+
+function totalPrice (choicedItem){
+    let id = menuArray.filter(function(item){
+        return  choicedItem == item.id
+       })[0]
+
+       let randomUuid = uuidv4()
+
+    itemsArray.push(
+        {   
+            name:id.name,
+            price:id.price,
+            uuid:randomUuid
+        },
+    )
+
+   
+    let paymentSection = ``
+
+        
+    paymentSection = `
+    <div class="Sum-orders"  id:"${randomUuid}"}>
+
+        <div class="required">
+            <h1>${id.name}</h1>
+           <a> <p data-itemid="${randomUuid}">remove</p> </a> 
+        </div>
+        
+
+        <div class="price">
+            <h2>$${id.price}</h2>
+        </div>
+        
+    </div>
+    `
+    document.querySelector(".listOfPayment").innerHTML += paymentSection
+
+    console.log(itemsArray) 
+   
+}
+
 
 function getFeedHtml(){
     
