@@ -66,7 +66,9 @@ document.addEventListener('click', function(e){
         addToPayment(e.target.dataset.order)
         totalPrice(e.target.dataset.order)
         }
+       if(e.target.dataset.order){
         soma()
+       } 
     })
 
     document.addEventListener('click', function(e){
@@ -110,11 +112,6 @@ function totalPrice (choicedItem){
     document.querySelector(".listOfPayment").innerHTML += paymentSection
 
 
-
-
-
-
-   
 }
 
 
@@ -145,6 +142,33 @@ function render(){
     document.querySelector('.orders').innerHTML = getFeedHtml()
     
 }
+
+/* MODAL */
+
+document.querySelector(".complete-order").addEventListener('click',function(){
+    document.querySelector(".modal").classList.add('show')
+})
+
+
+
+const formInputs = document.querySelector("#form-inputs")
+formInputs.addEventListener('submit', function(e){
+    e.preventDefault()
+
+    let formInputs=document.querySelector("#form-inputs")
+    const cardData = new FormData(formInputs)
+
+    const name = cardData.get('client')
+    
+
+    document.querySelector('.payment-title').classList.remove('show')
+    document.querySelector('.total-price').classList.remove('show-flex')
+    document.querySelector('.complete-order').classList.remove('show') 
+    document.querySelector('.listOfPayment').classList.add('hide')
+    document.querySelector(".modal").classList.remove('show')
+    document.querySelector(".thanks-screen").classList.add('show-flex')
+    document.querySelector(".thanks-screen").innerHTML = `<h1>Thanks, ${name}! Your order is on its way!</h1>`
+})
 
 render()
 

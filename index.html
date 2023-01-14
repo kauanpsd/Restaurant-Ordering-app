@@ -88,7 +88,7 @@
         </button>
 
         <div class="thanks-screen">
-            <h1>Thanks, James! Your order is on its way!</h1>
+            
         </div>
 
     </section>
@@ -96,13 +96,13 @@
     <!-- MODAL -->
 
     <section class="modal">
-        <div class="inputs">
+        <form id="form-inputs">
             <h1>Enter card details</h1>
-            <input required type="text" placeholder="Enter your name" >
-            <input required type="text" placeholder="Enter card number" >
-            <input required type="text" placeholder="Enter CVV" >
-            <button class="pay">Pay</button>
-        </div>
+            <input required type="text" placeholder="Enter your name" name="client" >
+            <input required type="number" placeholder="Enter card number" >
+            <input required type="number" placeholder="Enter CVV" >
+            <input class="pay" type="submit" value="Pay">
+        </form>
     </section>
         
 
