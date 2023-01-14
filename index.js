@@ -50,15 +50,12 @@ document.addEventListener('click', function(e){
 
     document.addEventListener('click', function(e){
         if(e.target.dataset.itemid){
+            document.getElementById(e.target.id).remove()
             
+            /* CREATE A REMOVE FUNCTION TO TAKE THE SUM NUMBERS OF THE ARRAY */
+     
+        } 
 
-            let itemString = `"${e.target.dataset.itemid}"`
-           console.log( document.getElementById(itemString))
-        }
-
-      
-        
-        
     })
 /* ADD THE SUM, AND UUID */
 
@@ -82,11 +79,11 @@ function totalPrice (choicedItem){
 
         
     paymentSection = `
-    <div class="Sum-orders"  id:"${randomUuid}"}>
+    <div class="Sum-orders"  id="${randomUuid}"}>
 
         <div class="required">
             <h1>${id.name}</h1>
-           <a> <p data-itemid="${randomUuid}">remove</p> </a> 
+           <a> <p data-itemid="${randomUuid}" id="${randomUuid}">remove</p> </a> 
         </div>
         
 
@@ -99,6 +96,10 @@ function totalPrice (choicedItem){
     document.querySelector(".listOfPayment").innerHTML += paymentSection
 
     console.log(itemsArray) 
+
+    
+
+
    
 }
 
