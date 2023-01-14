@@ -4,8 +4,35 @@ import {menuArray} from './data.js';
 
 
 
-let itemsArray = []
+
 let sumItems = []
+
+function soma() { var sum = 0
+
+    for (let i = 0; i < sumItems.length; i++){
+        sum += sumItems[i] 
+
+  }
+
+    let result = sum
+
+    document.querySelector(".total-price").innerHTML = `
+    <h1>Total Price:</h1>
+    <h2>$${result}</h2> 
+    `
+    console.log(sumItems)
+
+    if(sumItems.length == 1){
+        document.querySelector('.payment-title').classList.add('show')
+        document.querySelector('.total-price').classList.add('show-flex')
+        document.querySelector('.complete-order').classList.add('show')
+    
+    } if(sumItems.length == 0){
+        document.querySelector('.payment-title').classList.remove('show')
+        document.querySelector('.total-price').classList.remove('show-flex')
+        document.querySelector('.complete-order').classList.remove('show')
+    }
+}
 
 
 function addToPayment(orderPayment){    
@@ -13,31 +40,24 @@ function addToPayment(orderPayment){
          return  orderPayment == identif.id
         })[0]
 
-
-        var sum = 0
-
         sumItems.push(
             id.price
         )
 
-        for (let i = 0; i < sumItems.length; i++){
-            sum += sumItems[i] 
-      }
     
-        document.querySelector(".total-price").innerHTML = `
-        <h1>Total Price:</h1>
-        <h2>$${sum}</h2> 
-        `
+       }
 
+ 
+
+ function removeItem(idItemPrice){
+    const indexElement = document.getElementById(`${idItemPrice}`)
+    let index = Array.from(indexElement.parentElement.children).indexOf(indexElement)
+    indexElement.remove()
+    
+    
+        sumItems.splice(index, 1)
         console.log(sumItems)
 
-        if(sumItems.length === 1){
-            document.querySelector('.payment-title').classList.add('show')
-            document.querySelector('.total-price').classList.add('show-flex')
-            document.querySelector('.complete-order').classList.add('show')
-        }
-
-        
 
  }
 
@@ -46,12 +66,13 @@ document.addEventListener('click', function(e){
         addToPayment(e.target.dataset.order)
         totalPrice(e.target.dataset.order)
         }
+        soma()
     })
 
     document.addEventListener('click', function(e){
         if(e.target.dataset.itemid){
-            document.getElementById(e.target.id).remove()
-            
+            removeItem(e.target.id)
+            soma()
             /* CREATE A REMOVE FUNCTION TO TAKE THE SUM NUMBERS OF THE ARRAY */
      
         } 
@@ -66,13 +87,6 @@ function totalPrice (choicedItem){
 
        let randomUuid = uuidv4()
 
-    itemsArray.push(
-        {   
-            name:id.name,
-            price:id.price,
-            uuid:randomUuid
-        },
-    )
 
    
     let paymentSection = ``
@@ -95,9 +109,9 @@ function totalPrice (choicedItem){
     `
     document.querySelector(".listOfPayment").innerHTML += paymentSection
 
-    console.log(itemsArray) 
 
-    
+
+
 
 
    
