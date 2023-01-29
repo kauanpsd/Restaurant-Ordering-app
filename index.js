@@ -75,7 +75,7 @@ document.addEventListener('click', function(e){
         if(e.target.dataset.itemid){
             removeItem(e.target.id)
             soma()
-            /* CREATE A REMOVE FUNCTION TO TAKE THE SUM NUMBERS OF THE ARRAY */
+           
      
         } 
 
